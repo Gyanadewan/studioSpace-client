@@ -10,6 +10,7 @@ import {
   HiOutlinePhone,
 } from "react-icons/hi2";
 import { FaArrowRight, FaUser } from "react-icons/fa";
+import UserMenu from "../user-menu/UserMenu";
 
 const navLinks = [
   { name: "Home", href: "/", icon: <HiOutlineHome /> },
@@ -43,21 +44,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/signin"
-            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100"
-          >
-            <FaUser />
-            <span>Sign In</span>
-          </Link>
-
-          <Link
-            href="/signup"
-            className="flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700"
-          >
-            Sign Up
-            <FaArrowRight />
-          </Link>
+          <UserMenu></UserMenu>
         </div>
 
       </nav>
