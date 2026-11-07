@@ -4,6 +4,7 @@ import Footer from "@/components/shered/Footer";
 import Navbar from "@/components/shered/Navber";
 
   import { ToastContainer} from 'react-toastify';
+import Featured from "@/components/Featured/Featured";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         
         <Navbar></Navbar>
         {children}
+        <Featured></Featured>
         <Footer></Footer>
          <ToastContainer />
       </body>

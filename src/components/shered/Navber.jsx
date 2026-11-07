@@ -9,7 +9,7 @@ import {
   HiOutlineInformationCircle,
   HiOutlinePhone,
 } from "react-icons/hi2";
-import { FaArrowRight, FaUser } from "react-icons/fa";
+
 import UserMenu from "../user-menu/UserMenu";
 
 const navLinks = [
