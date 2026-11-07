@@ -17,7 +17,7 @@ const navLinks = [
   { name: "Studios", href: "/studios", icon: <HiOutlineBuildingOffice2 /> },
   { name: "Services", href: "/services", icon: <HiOutlineWrenchScrewdriver /> },
   { name: "Booking", href: "/booking", icon: <HiOutlineCalendarDays /> },
-  { name: "About Us", href: "/about", icon: <HiOutlineInformationCircle /> },
+  { name: "About Us", href: "/aboutus", icon: <HiOutlineInformationCircle /> },
   { name: "Contact", href: "/contact", icon: <HiOutlinePhone /> },
 ];
 

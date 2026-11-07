@@ -39,8 +39,8 @@ function UserDropdown() {
           </div>
 
             <div className="py-4">
-             <Link href="/myprofile" onClick={() => setIsOpen(false)} className="py-3">
-            👤 আমার প্রোফাইল
+             <Link href="/profile" onClick={() => setIsOpen(false)} className="py-3">
+            👤 My profile
           </Link>
             </div>
                  <button
@@ -48,7 +48,7 @@ function UserDropdown() {
             className="flex w-full items-center justify-start gap-2 text-red-500"
                  >
           <HiOutlineArrowUturnLeft />
-           <span>সাইন আউট</span>
+           <span>Sign out</span>
          </button>
         </div>
       )}
