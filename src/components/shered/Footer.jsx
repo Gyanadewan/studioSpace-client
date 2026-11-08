@@ -14,7 +14,7 @@ import {
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Studios", href: "/studios" },
-  { name: "Services", href: "/services" },
+  { name: "Services", href: "/service" },
   { name: "Booking", href: "/booking" },
   { name: "About Us", href: "/aboutus" },
 ];
@@ -90,7 +90,7 @@ export default function Footer() {
               {services.map((service) => (
                 <li key={service.name}>
                   <Link
-                    href={service.href}
+                    href={"/service"}
                     className="text-sm transition hover:text-violet-400"
                   >
                     {service.name}
