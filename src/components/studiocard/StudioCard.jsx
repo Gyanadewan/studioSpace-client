@@ -2,6 +2,7 @@
 
 import { MapPin, Star, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+
 import Link from "next/link";
 
 export default function StudioCard({studio}) {
@@ -24,6 +25,7 @@ export default function StudioCard({studio}) {
         <Image
           src={imageUrl}
           alt={title}
+          unoptimized
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 33vw"
