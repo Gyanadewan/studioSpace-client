@@ -20,7 +20,7 @@ const navLinks = [
   { name: "Studios", href: "/studios", icon: <HiOutlineBuildingOffice2 /> },
   { name: "Add Studio", href: "/add-studio", icon:  <HiOutlinePlusCircle/>},
   { name: "Services", href: "/service", icon: <HiOutlineWrenchScrewdriver /> },
-  { name: "Booking", href: "/booking", icon: <HiOutlineCalendarDays /> },
+  { name: "Booking", href: "/mybooking", icon: <HiOutlineCalendarDays /> },
   { name: "About Us", href: "/aboutus", icon: <HiOutlineInformationCircle /> },
   { name: "Contact", href: "/contact", icon: <HiOutlinePhone /> },
 ];

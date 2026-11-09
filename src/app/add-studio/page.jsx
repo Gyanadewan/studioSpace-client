@@ -4,6 +4,8 @@
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 
 const categories = [
   "Photo Studio",
@@ -72,8 +74,13 @@ export default function AddStudioPage() {
   );
 
   const resdata = await res.json();
-   console.log(resdata)
-   redirect("/studios")
+   if (res.ok) {
+  toast.success("Studio added successfully!");
+     redirect("/studios")
+  } else {
+  toast.error("Failed to add studio");
+    }
+  
 
 };
 

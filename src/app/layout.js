@@ -3,8 +3,7 @@ import "./globals.css";
 import Footer from "@/components/shered/Footer";
 import Navbar from "@/components/shered/Navber";
 
-  import { ToastContainer} from 'react-toastify';
-import Featured from "@/components/Featured/Featured";
+import { ToastContainer} from 'react-toastify';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

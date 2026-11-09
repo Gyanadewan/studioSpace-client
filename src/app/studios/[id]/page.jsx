@@ -298,8 +298,8 @@ export default async function StudioDetailsPage({ params }) {
        href={`/booking?studioId=${studio._id}`}
         className="flex w-full items-center justify-center gap-2 rounded-md bg-violet-700 px-4 py-3 text-white hover:bg-violet-800"
      >
-     <HiOutlineCalendarDays className="size-5" />
-     Book This Studio
+       <HiOutlineCalendarDays className="size-5" />
+         Book This Studio
        </Link>
          )}
 
