@@ -27,10 +27,19 @@ import {
   Mic2,
   Camera,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export default function SignInPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+   const handleGithubSignUp = async () => {
+      const data = await authClient.signIn.social({
+          provider: "github",
+           callbackURL: "/", 
+
+      })
+  }
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -222,6 +231,16 @@ export default function SignInPage() {
                 <span className="text-xs text-gray-400">OR</span>
                 <div className="h-px flex-1 bg-gray-200" />
               </div>
+                 <Button
+                      type="button"
+                    onClick={handleGithubSignUp}
+                   variant="outline"
+                  className="h-12 w-full gap-2 border-gray-300"
+                  >
+                   <FaGithub size={20} />
+                  Continue with GitHub
+               </Button>
+
 
               <p className="text-center text-sm text-gray-500">
                 Don't have an account?{" "}

@@ -10,9 +10,18 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import { UserRound, Mail, LockKeyhole, Image, Sparkles } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export default function SignUpPage() {
   const router = useRouter();
+
+     const handleGithubSignUp = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+             callbackURL: "/", 
+  
+        })
+    }
 
   const handleEmailSignUp = async (e) => {
     e.preventDefault();
@@ -168,6 +177,18 @@ export default function SignUpPage() {
                 >
                   Create Account
                 </Button>
+                    
+                    <div>
+                       <Button
+                          type="button"
+                           onClick={handleGithubSignUp}
+                            variant="outline"
+                             className="h-12 w-full gap-2 border-gray-300"
+                             >
+                           <FaGithub size={20} />
+                             Continue with GitHub
+                            </Button>
+                    </div>
 
                 <FieldDescription className="text-center text-gray-500">
                   Already have an account?{" "}
