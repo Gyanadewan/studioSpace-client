@@ -20,7 +20,7 @@ export default function NotFound() {
         href="/"
         className="mt-6 rounded-lg bg-violet-600 px-6 py-3 text-white"
       >
-        Back to Home
+       Return to Home
       </Link>
     </div>
   );
