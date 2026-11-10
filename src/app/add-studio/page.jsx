@@ -63,7 +63,7 @@ export default function AddStudioPage() {
   data.hostName = user.name;
   data.hostEmail = user.email;
 
-  const res = await fetch(`http://localhost:8000/studios`,
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/studios`,
     {
       method: "POST",
       headers: {

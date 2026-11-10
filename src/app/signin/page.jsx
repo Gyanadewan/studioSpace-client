@@ -38,14 +38,19 @@ export default function SignInPage() {
            provider: "google",
            callbackURL: "/", 
       })
+       if (error) {
+        toast.error(error.message);
+      }
     }
 
    const handleGithubSignUp = async () => {
       const data = await authClient.signIn.social({
           provider: "github",
            callbackURL: "/", 
-
       })
+       if (error) {
+        toast.error(error.message);
+      }
   }
 
   const handleSignIn = async (e) => {

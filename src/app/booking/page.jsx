@@ -5,7 +5,7 @@ const BookingPage = async ({ searchParams }) => {
   const { studioId } = await searchParams;
 
   const res = await fetch(
-    `http://localhost:8000/studios/${studioId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/studios/${studioId}`,
     {
       cache: "no-store",
     }

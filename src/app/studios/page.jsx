@@ -6,15 +6,15 @@ async function StudiosPage({ searchParams }) {
 
   const res = await fetch(
   category
-    ? `http://localhost:8000/studios?category=${encodeURIComponent(category)}`
-    : "http://localhost:8000/studios",
+    ? `${process.env.NEXT_PUBLIC_API_URL}/studios?category=${encodeURIComponent(category)}`
+    : `${process.env.NEXT_PUBLIC_API_URL}/studios`,
   {
     cache: "no-store",
    }
    );
 
 const studios = await res.json();
-console.log(studios)
+
 
 
   return (

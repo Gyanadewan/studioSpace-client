@@ -3,7 +3,7 @@ import StudioCard from '../studiocard/StudioCard';
 
 
  async function Featured() {
-   const res = await fetch("http://localhost:8000/featured-studios")
+   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured-studios`)
   const featuredStudioData =  await res.json();
 
   return (

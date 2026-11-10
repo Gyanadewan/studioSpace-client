@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 async function Category({ selectedCategory }) {
-  const res = await fetch("http://localhost:8000/categories", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
     cache: "no-store",
   });
 

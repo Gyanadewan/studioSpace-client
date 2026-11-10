@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/avatar";
 
 async function getStudio(id) {
-  const res = await fetch(`http://localhost:8000/studios/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/studios/${id}`, {
     cache: "no-store",
   });
 
@@ -37,7 +37,7 @@ async function getStudio(id) {
   }
 
   if (!res.ok) {
-    throw new Error("Failed to fetch studio");
+       notFound();
   }
 
   return res.json();
