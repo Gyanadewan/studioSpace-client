@@ -10,10 +10,17 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import { UserRound, Mail, LockKeyhole, Image, Sparkles } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 export default function SignUpPage() {
   const router = useRouter();
+
+      const handleGoogleSignUp = async () => {
+      const data = await authClient.signIn.social({
+         provider: "google",
+         callbackURL: "/", 
+    })
+  }
 
      const handleGithubSignUp = async () => {
         const data = await authClient.signIn.social({
@@ -178,12 +185,24 @@ export default function SignUpPage() {
                   Create Account
                 </Button>
                     
+          
                     <div>
+                   
+                       <Button
+                          type="button"
+                           onClick={handleGoogleSignUp}
+                            variant="outline"
+                             className="h-12 w-full gap-2 border-gray-300 my-2"
+                             >
+                           <FaGoogle size={18} />
+                             Continue with Google
+                            </Button>
+                       
                        <Button
                           type="button"
                            onClick={handleGithubSignUp}
                             variant="outline"
-                             className="h-12 w-full gap-2 border-gray-300"
+                             className="h-12 w-full gap-2 border-gray-300 "
                              >
                            <FaGithub size={20} />
                              Continue with GitHub

@@ -27,11 +27,18 @@ import {
   Mic2,
   Camera,
 } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 export default function SignInPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+      const handleGoogleSignUp = async () => {
+        const data = await authClient.signIn.social({
+           provider: "google",
+           callbackURL: "/", 
+      })
+    }
 
    const handleGithubSignUp = async () => {
       const data = await authClient.signIn.social({
@@ -231,6 +238,16 @@ export default function SignInPage() {
                 <span className="text-xs text-gray-400">OR</span>
                 <div className="h-px flex-1 bg-gray-200" />
               </div>
+
+                  <Button
+                        type="button"
+                        onClick={handleGoogleSignUp}
+                        variant="outline"
+                       className="h-12 w-full gap-2 border-gray-300 my-2"
+                         >
+                        <FaGoogle size={18} />
+                         Continue with Google
+                         </Button>  
                  <Button
                       type="button"
                     onClick={handleGithubSignUp}
