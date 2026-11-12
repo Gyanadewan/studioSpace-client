@@ -14,6 +14,7 @@ import { HiOutlineBars3, HiOutlineBuildingOffice2,
   HiOutlineXMark,
  
  } from "react-icons/hi2";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/", icon: <HiOutlineHome /> },
@@ -29,12 +30,16 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b bg-gray-300 backdrop-blur">
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <Link href="/" className="text-2xl font-extrabold tracking-tight text-gray-900">
-          Studio<span className="text-indigo-600">Space.</span>
+        <Link href="/" className="text-2xl font-extrabold tracking-tight">
+           <Image src="/images/logo.png"
+            width={220}
+           height={200}
+           alt="Picture of the logo">
+         </Image>
         </Link>
 
         {/* Desktop Navigation */}
