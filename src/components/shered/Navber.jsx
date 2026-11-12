@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <div className="hidden sm:block">
+          <div className="block sm:block">
             <UserMenu />
           </div>
 
