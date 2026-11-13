@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -35,8 +36,12 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="/" className="brand-gradient text-2xl font-extrabold ">
-               Studio<span className="text-indigo-600">Space.</span>
+            <Link href="/" className="brand-gradient">
+              <Image src="/images/logo.png"
+                         width={200}
+                        height={200}
+                        alt="Picture of the logo">
+                      </Image>
             </Link>
 
             <p className="mt-4 max-w-xs text-sm leading-7 text-gray-400">
