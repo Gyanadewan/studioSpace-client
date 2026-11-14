@@ -1,13 +1,19 @@
 import BookingBtn from "@/components/booking/BookingBtn";
+import { getTokenFromServer } from "@/lib/getTokenFromserver";
 
 
 const BookingPage = async ({ searchParams }) => {
   const { studioId } = await searchParams;
 
+   const token = await getTokenFromServer()
+   
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/studios/${studioId}`,
     {
       cache: "no-store",
+      headers: {
+         Authorization: `Bearer ${token}`
+      }
     }
   );
 

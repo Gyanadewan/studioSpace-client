@@ -2,6 +2,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import { getTokenFromClient } from "@/lib/getTokenFromclient";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -62,12 +63,15 @@ export default function AddStudioPage() {
    }
   data.hostName = user.name;
   data.hostEmail = user.email;
-
+ 
+  const token = await getTokenFromClient()
+  console.log("JWT Token:", token);
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/studios`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     }

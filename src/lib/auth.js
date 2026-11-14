@@ -1,5 +1,7 @@
-import { betterAuth } from "better-auth";
+
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
+import { betterAuth } from "better-auth";
+import { jwt } from "better-auth/plugins";
 import { MongoClient } from "mongodb";
 
 const client = new MongoClient(process.env.MONGODB_URL);
@@ -8,6 +10,9 @@ export const auth = betterAuth({
   database: mongodbAdapter(db, {
     client,
   }),
+
+      plugins: [jwt()],
+
     socialProviders: {
         github: { 
             clientId: process.env.GITHUB_CLIENT_ID , 

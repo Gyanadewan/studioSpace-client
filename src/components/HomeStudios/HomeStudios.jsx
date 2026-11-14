@@ -1,21 +1,29 @@
+
 import Category from "../category/Category";
 
 function HomeStudios() {
   return (
-    <div>
-      <div className="container mx-auto mt-2 px-5 md:px-0">
-        <p className="mb-3 text-left text-2xl font-bold uppercase tracking-widest text-purple-600 sm:text-center sm:text-3xl">
-          Find Your Perfect Space
-        </p>
+    <section className="bg-[#efeff2] py-14 md:py-20">
+      <div className="container mx-auto px-5 md:px-8">
 
-        <p className="max-w-xl text-left text-sm leading-6 text-gray-800 sm:mx-auto sm:text-center sm:text-base sm:leading-7">
-          Discover professional studios for podcasting, photography, recording,
-          and more. Choose a category to find the perfect space for your creative needs.
-        </p>
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Find Your Perfect Space
+          </h2>
+
+          <p className="mx-auto max-w-2xl text-center text-sm leading-7 text-gray-600 md:text-base">
+            Discover professional studios for podcasting, photography,
+            recording, and more. Choose a category to find the perfect
+            space for your creative needs.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-4xl">
+          <Category />
+        </div>
+
       </div>
-
-      <Category />
-    </div>
+    </section>
   );
 }
 

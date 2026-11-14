@@ -2,6 +2,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import { getTokenFromClient } from "@/lib/getTokenFromclient";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -12,32 +13,42 @@ const MyBookingsPage = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!user?.email) return;
+ useEffect(() => {
+  if (!user?.email) return;
 
-    const fetchBookings = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/my-bookings/${encodeURIComponent(user.email)}`
-        );
+  const fetchBookings = async () => {
+    try {
+      const token = await getTokenFromClient();
 
-        const data = await res.json();
-        setBookings(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/my-bookings/${encodeURIComponent(user.email)}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-    fetchBookings();
-  }, [user?.email]);
+      const data = await res.json();
+      setBookings(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  fetchBookings();
+}, [user?.email]);
 
-
+ 
   const handleCancel = async (id) => {
+     const token = await getTokenFromClient()
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${id}`, {
     method: "DELETE",
+     headers: {
+       Authorization: `Bearer ${token}`,
+     }
   });
 
   if (res.ok) {
