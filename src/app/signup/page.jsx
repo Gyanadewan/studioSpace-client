@@ -15,7 +15,24 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 export default function SignUpPage() {
   const router = useRouter();
 
-      const handleGoogleSignUp = async () => {
+   const validatePassword = (password) => {
+
+    if (!/[A-Z]/.test(password)) {
+    return "Password must contain an uppercase letter.";
+  }
+
+  if (!/[a-z]/.test(password)) {
+    return "Password must contain a lowercase letter.";
+  }
+
+  if (password.length < 6) {
+    return "Password must be at least 6 characters.";
+  }
+    return null;
+    };
+
+
+   const handleGoogleSignUp = async () => {
       const data = await authClient.signIn.social({
          provider: "google",
          callbackURL: "/", 
@@ -36,6 +53,12 @@ export default function SignUpPage() {
     const formData = new FormData(e.target);
     const user = Object.fromEntries(formData.entries());
 
+      const passwordError = validatePassword(user.password);
+           if (passwordError) {
+            toast.error(passwordError);
+            return;
+            }
+            
     const { data, error } = await authClient.signUp.email({
       name: user.name,
       email: user.email,
